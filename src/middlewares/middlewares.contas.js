@@ -8,12 +8,12 @@ const validarSenhaBanco = (req, res, next) => {
   const senhaCorreta = banco.senha;
 
   if (senha_banco === "" || senha_banco === undefined) {
-    res.status(401).json({ mensagem: "Por favor insira a senha do banco." })
+    return res.status(401).json({ mensagem: "Por favor insira a senha do banco." })
   }
   if (senhaDigitada === senhaCorreta) {
     next();
   } else {
-    res.status(401).json({ mensagem: "A senha do banco informada é inválida!" })
+    return res.status(401).json({ mensagem: "A senha do banco informada é inválida!" })
   }
 };
 
